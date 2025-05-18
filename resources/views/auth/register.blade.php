@@ -16,6 +16,19 @@
 {{ Form::label('パスワード確認') }}
 {{ Form::password('password_confirmation',null,['class' => 'input']) }}
 
+<!-- エラーメッセージ -->
+@error('username')
+<p>{{ $message}}</p>
+@enderror
+
+@error('email')
+<p>{{ $message}}</p>
+@enderror
+
+@error('password')
+<p>{{ $message}}</p>
+@enderror
+
 {{ Form::submit('登録') }}
 
 <p><a href="login">ログイン画面へ戻る</a></p>

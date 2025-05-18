@@ -30,6 +30,18 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // ルールを決めてバリデーションをする
+        $rules = [
+            'username' => 'required|min:2|max:12',
+            'email' =>  'required|email|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+        ];
+
+        $request->validate($rules);
+
+
+        // データベースに新規保存
+
         User::create([
             'username' => $request->username,
             'email' => $request->email,
@@ -39,8 +51,9 @@ class RegisteredUserController extends Controller
         return redirect('added');
     }
 
-    public function added(): View
+    public function added(Request $request): RedirectResponse
     {
+        dd($request);
         return view('auth.added');
     }
 }

@@ -1,13 +1,24 @@
         <div id="head">
             <h1><a href="top"><img src="images/atlas.png"></a></h1>
-            <div id="">
+            <div id="flex_nav">
                 <div id="">
                     <p>〇〇さん</p>
                 </div>
-                <ul>
+                <nav>
+                 <details>
+                 <summary>〇
+                    <!-- 開くときは△閉じると▽ -->
+                </summary>
+                  <ul>
                     <li><a href="top">ホーム</a></li>
                     <li><a href="profile">プロフィール</a></li>
                     <li><a href="login">ログアウト</a></li>
-                </ul>
+                  </ul>
+                 </details>
+                </nav>
+
+                <div>
+                    アイコン
+                </div>
             </div>
         </div>
