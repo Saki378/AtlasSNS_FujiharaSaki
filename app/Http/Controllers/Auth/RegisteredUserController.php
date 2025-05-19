@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
         // ルールを決めてバリデーションをする
         $rules = [
             'username' => 'required|min:2|max:12',
-            'email' =>  'required|email|min:5|max:40',
+            'email' =>  'required|email|min:5|max:40|unique:users',
             'password' => 'required|alpha_num|min:8|max:20|confirmed',
         ];
 
