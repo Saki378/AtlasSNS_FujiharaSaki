@@ -48,12 +48,14 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
+        $request->session()->put('username',$request->username);
+
         return redirect('added');
     }
 
-    public function added(Request $request): RedirectResponse
+    public function added(Request $request): View
     {
-        dd($request);
         return view('auth.added');
     }
 }
