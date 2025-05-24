@@ -29,4 +29,6 @@ Route::group(['middlewere'=>['auth']],function () {
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
+  // ログアウト実装
+  Route::get('logout',[PostsController::class,'logout']);
 });
