@@ -18,7 +18,7 @@
                 </nav>
 
                 <div>
-                    アイコン
+                <img src="images/{{ Auth::user()->icon_image }}">
                 </div>
             </div>
         </div>
