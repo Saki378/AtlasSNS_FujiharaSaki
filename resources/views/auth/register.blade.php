@@ -29,7 +29,7 @@
 <p>{{ $message}}</p>
 @enderror
 
-{{ Form::submit('登録') }}
+{{ Form::submit('新規登録') }}
 
 <p><a href="login">ログイン画面へ戻る</a></p>
 
