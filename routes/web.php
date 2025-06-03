@@ -31,4 +31,8 @@ Route::group(['middleware'=>['auth']],function () {
   Route::get('follower-list', [PostsController::class, 'index']);
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);
+
+  //ポストを作成
+  Route::post('/post_create',[PostsController::class,'create']);
+
 });
