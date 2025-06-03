@@ -112,6 +112,39 @@ div .icon img {
 
 #container {
   flex: 0 0 80%;
+
+}
+
+/* -----Post投稿画面 */
+#container .post {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+#container .post_icon {
+  height: 35px;
+  margin-bottom: 50px;
+  margin-right: 20px;
+}
+
+#container .texts {
+  height: 100px;
+  width: 400px;
+  overflow: auto;
+  border: none;
+  background-color: #f5f8fa;
+  resize: none;
+}
+
+#container .post_btn {
+  height: 30px;
+
+}
+
+#container hr {
+  border-top: 5px solid #eee;
 }
 
 #side-bar {
