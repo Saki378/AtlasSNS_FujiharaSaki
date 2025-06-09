@@ -18,7 +18,7 @@
                 </nav>
 
                 <div class="icon" >
-                <img src="images/{{ Auth::user()->icon_image }}">
+                <img src="/storage/images/{{Auth::user()->icon_image }}">
                 </div>
             </div>
         </div>

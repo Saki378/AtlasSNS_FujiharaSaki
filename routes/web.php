@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +24,24 @@ require __DIR__ . '/auth.php';
 Route::group(['middleware'=>['auth']],function () {
   Route::get('top', [PostsController::class, 'index']);
 
-  Route::get('profile', [ProfileController::class, 'profile']);
+  //更新ページ表示
+  Route::get('profile', [ProfileController::class, 'index']);
+  //更新処理
+  Route::post('update_form',[ProfileController::class,'update']);
 
   Route::get('search', [UsersController::class, 'index']);
 
-  Route::get('follow-list', [PostsController::class, 'index']);
-  Route::get('follower-list', [PostsController::class, 'index']);
+  //フォローリスト
+  Route::get('follow-list', [FollowsController::class, 'followList']);
+
+  //フォロワーリスト
+  Route::get('follower-list', [FollowsController::class, 'followerList']);
+
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);
+
+  //検索リスト
+  Route::get('search',[UsersController::class,'search']);
 
   //ポストを作成
   Route::post('/post_create',[PostsController::class,'create']);

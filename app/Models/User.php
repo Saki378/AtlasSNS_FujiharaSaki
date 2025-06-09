@@ -21,6 +21,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'bio',
+        'icon_image',
     ];
 
     /**
@@ -33,9 +35,16 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    // フォローリレーション多対多
-    // public function users(){
-    //     return $this->belongsToMany('App\Models\User','Follows','following_id','followed_id');
-    //     return $this->belongsToMany('App\Models\User','Follows','followed_id','following_id');
-    // }
+    // 投稿postとのリレーション（1対多　多）
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
+
+    //フォロー　リレーション多対多
+    public function followers(){
+        return $this->belongsToMany('App\Models\User','Follows','following_id','followed_id');
+    }
+    public function follows(){
+        return $this->belongsToMany('App\Models\User','Follows','followed_id','following_id');
+    }
 }

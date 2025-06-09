@@ -27,6 +27,11 @@ class Post extends Model
     ];
 
 
+    // ユーザーuserとのリレーション（1対多 1）
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
 
 
 

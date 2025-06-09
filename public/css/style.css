@@ -151,3 +151,46 @@ div .icon img {
   flex: 0 0 19%;
   border-left: 1px solid #727272;
 }
+
+/* プロフィール更新 */
+.flex {
+  display: flex;
+  margin: 40px auto;
+  margin-bottom: 10px;
+  position: relative;
+  justify-content: center;
+}
+
+#container .icon {
+  height: 40px;
+  margin-right: 20px;
+}
+
+#container .form-control {
+  display: block;
+  margin: 10px auto;
+}
+
+#container input {
+  margin: 10px 40px;
+  width: 300px;
+}
+
+#container table input {
+  background-color: lightgrey;
+}
+
+input[type=file] {
+  display: block;
+  top: 0;
+  left: 0;
+  height: 40px;
+  border: 1px solid #ccd0d2;
+}
+
+
+#container .btn-danger {
+  display: block;
+  margin: 0px auto;
+  width: 200px;
+}
