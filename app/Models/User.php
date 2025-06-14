@@ -41,10 +41,14 @@ class User extends Authenticatable
     }
 
     //フォロー　リレーション多対多
+    //フォローしているユーザー
     public function followers(){
         return $this->belongsToMany('App\Models\User','Follows','following_id','followed_id');
     }
+
+    //フォローされているユーザー
     public function follows(){
         return $this->belongsToMany('App\Models\User','Follows','followed_id','following_id');
     }
+
 }

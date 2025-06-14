@@ -42,6 +42,7 @@ Route::group(['middleware'=>['auth']],function () {
 
   //検索リスト
   Route::get('search',[UsersController::class,'search']);
+  Route::post('search',[UsersController::class,'search']);
 
   //ポストを作成
   Route::post('/post_create',[PostsController::class,'create']);
