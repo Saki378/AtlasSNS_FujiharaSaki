@@ -104,7 +104,7 @@ div .icon img {
 }
 
 
-/* main content */
+/* --------------------main content */
 #row {
   display: flex;
   flex-flow: row wrap;
@@ -112,19 +112,22 @@ div .icon img {
 
 #container {
   flex: 0 0 80%;
-
 }
 
-/* -----Post投稿画面 */
-#container .post {
+#container .flex {
   display: flex;
+}
+
+/* ---------------------Post投稿画面 */
+
+#container .post_box {
+  justify-content: center;
   align-items: center;
   margin: 20px auto;
-  justify-content: center;
 }
 
 #container .post_icon {
-  height: 35px;
+  height: 40px;
   margin-bottom: 50px;
   margin-right: 20px;
 }
@@ -141,7 +144,6 @@ div .icon img {
 #container .post_btn {
   height: 40px;
   width: 40px;
-
 }
 
 #container hr {
@@ -152,6 +154,53 @@ div .icon img {
   flex: 0 0 19%;
   border-left: 1px solid #727272;
 }
+
+#container .post_line {
+  height: 20px;
+  width: 300px;
+}
+
+#container .line_icon {
+  margin-left: auto;
+}
+
+#container .post_text {
+  height: 20px;
+  width: 350px;
+}
+
+#container .post_text span {
+  font-weight: bold;
+}
+
+#container .post_time {
+  margin: 0 40px 0 20px;
+  text-align: right;
+  width: 30%;
+}
+
+#container .btn_box {
+  display: flex;
+  justify-content: end;
+  margin: 0 10px;
+}
+
+#container .btn_box input {
+  margin: 0;
+  height: 50px;
+  width: 50px;
+}
+
+#container .post_item hr {
+  border-top: 1px solid #ccd0d2;
+}
+
+
+
+
+
+
+
 
 /* プロフィール更新 */
 .flex {

@@ -31,18 +31,16 @@
     {{ $data->username}}
 
     <!-- フォローorノンフォロー -->
-    <form method="POST" action="">
-                    @csrf
-                    <input name="follow_id" type="hidden" value="{{ $data->id }}" />
-                    @if($data->username)
+
+
                         <button type="submit" class="btn btn-primary">
                             フォロー解除
                         </button>
-                    @else
+
                         <button type="submit" class="btn btn-primary" >
                             フォローする
                         </button>
-                    @endif
+
                 </form>
 
   </div>

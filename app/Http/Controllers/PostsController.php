@@ -12,7 +12,14 @@ class PostsController extends Controller
     //ログイン後画面
     public function index(){
 
-        return view('posts.index');
+        $follow_users = Auth::user()->followers->pluck('id');
+
+        //フォローしている人、自分の投稿取得する。
+        $posts_all= Post::where('user_id',$follow_users)
+        ->orWhere('user_id',[Auth::id()])
+        ->get();
+
+        return view('posts.index')->with('posts_all',$posts_all);
     }
 
     // authログアウト機能

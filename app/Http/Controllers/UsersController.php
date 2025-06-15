@@ -31,8 +31,4 @@ class UsersController extends Controller
     'search_name'=>$request->search_name]);
     }
 
-    public function count() {
-         $data=User::all();
-        return view('login',$data);
-    }
 }
