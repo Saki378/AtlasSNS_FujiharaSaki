@@ -5,14 +5,14 @@
   フォローしてくれている人のアイコン一覧
 
 
-  <div class="box">
+  <div class="follow">
 
 
   </div>
 
 
   <hr>
-  <div>
+  <div class="list">
       フォローしてくれているメンバーの投稿を新しい順番で表示
 
 

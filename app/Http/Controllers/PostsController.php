@@ -54,4 +54,15 @@ class PostsController extends Controller
 
         return back();
     }
+
+    // 投稿を更新する
+    public function update($id) {
+
+        dd($id);
+
+
+        return view('modal');
+
+    }
+
 }

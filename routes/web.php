@@ -29,10 +29,11 @@ Route::group(['middleware'=>['auth']],function () {
   //更新処理
   Route::post('update_form',[ProfileController::class,'update']);
 
+  // 検索処理
   Route::get('search', [UsersController::class, 'index']);
 
   //フォローリスト
-  Route::get('follow-list', [FollowsController::class, 'followList']);
+  Route::get('follow-list', [UsersController::class, 'followShow']);
 
   //フォロワーリスト
   Route::get('follower-list', [FollowsController::class, 'followerList']);
@@ -46,5 +47,7 @@ Route::group(['middleware'=>['auth']],function () {
 
   //ポストを作成
   Route::post('/post_create',[PostsController::class,'create']);
+
+  Route::get('/post/{id}/update-form',[PostsController::class,'update']);
 
 });

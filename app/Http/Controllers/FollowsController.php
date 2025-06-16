@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
 {
-    // フォローページへ
-    public function followList(){
-
-        return view('follows.followList');
-    }
 
     // フォロワーページへ
     public function followerList(){

@@ -1,11 +1,11 @@
 <x-login-layout>
 
 
-  <h2>機能を実装していきましょう。フォロー</h2>
-
   <div class="box">
-
-
+  <p>フォローリスト</p>
+  @foreach($follow_data as $follow)
+  <img class="post_icon line_icon" src="/storage/images/{{ $follow->icon_image }}">
+  @endforeach
   </div>
 
 
@@ -13,8 +13,23 @@
   <div>
       フォローしているメンバーの投稿を新しい順番で表示
 
+      @foreach($follow_data as $follow)
+      <div>
+      <a href="#">
+      <img class="post_icon line_icon" src="/storage/images/{{ $follow->icon_image }}">
+      </a>
+      {{ $follow->username }}
 
-</div>
+      {{ $follow->post}}
 
+      </div>
+      @endforeach
+
+
+
+
+
+
+  </div>
 
 </x-login-layout>

@@ -28,12 +28,16 @@
   </div>
 
     <div class="btn_box">
-        <div class="post_update">
+
+        <a class="post_update" href="/post/{{$post_show->id}}/update-form">
         <input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn">
-      </div>
-      <div class="post_delete">
+        </a>
+
+
+
+        <a class="post_delete" href="#">
         <input type="image" name="submit" src="{{asset('images/trash.png')}}" alt="削除" class="post_btn">
-      </div>
+        </a>
     </div>
 
       <hr>
