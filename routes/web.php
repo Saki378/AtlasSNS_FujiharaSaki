@@ -32,11 +32,11 @@ Route::group(['middleware'=>['auth']],function () {
   // 検索処理
   Route::get('search', [UsersController::class, 'index']);
 
-  //フォローリスト
-  Route::get('follow-list', [UsersController::class, 'followShow']);
+  //フォローリスト　フォロー一覧表示
+  Route::get('follow-list', [PostsController::class, 'followShow']);
 
   //フォロワーリスト
-  Route::get('follower-list', [FollowsController::class, 'followerList']);
+  Route::get('follower-list', [PostsController::class, 'followerList']);
 
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);

@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class FollowsController extends Controller
 {
 
-    // フォロワーページへ
-    public function followerList(){
-        return view('follows.followerList');
-    }
 
     //ユーザーがフォローしているユーザーを抽出
     public function follow(){

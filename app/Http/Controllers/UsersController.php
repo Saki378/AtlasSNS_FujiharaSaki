@@ -28,15 +28,6 @@ class UsersController extends Controller
     'search_name'=>$request->search_name]);
     }
 
-    // フォローしている人一覧を表示する
-    public function followShow(){
-
-        // フォローしている人のデータを出す。
-        $follow_id=Auth::user()->followers->pluck('id');
-        $follow_data=User::where('id',$follow_id)->get();
-
-        return view('follows.followList')->with('follow_data',$follow_data);
-    }
 
 
 }

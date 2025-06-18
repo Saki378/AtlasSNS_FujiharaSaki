@@ -1,33 +1,37 @@
 <x-login-layout>
 
 
-  <div class="box">
+  <div class="follow">
   <p>フォローリスト</p>
-  @foreach($follow_data as $follow)
-  <img class="post_icon line_icon" src="/storage/images/{{ $follow->icon_image }}">
+
+  <!-- 重複を不可 -->
+  @foreach($follow_data->unique('user_id') as $icon)
+  <img class="post_icon line_icon" src="/storage/images/{{ $icon->user->icon_image }}">
   @endforeach
+
+
   </div>
 
 
   <hr>
-  <div>
+  <div class="list">
       フォローしているメンバーの投稿を新しい順番で表示
-
       @foreach($follow_data as $follow)
       <div>
+      <!-- PROFILEへリンク -->
       <a href="#">
-      <img class="post_icon line_icon" src="/storage/images/{{ $follow->icon_image }}">
+      <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
       </a>
-      {{ $follow->username }}
-
-      {{ $follow->post}}
-
+      <!-- フォローユーザー名 -->
+      {{ $follow->user->username }}
+      <!-- フォローしているユーザーの投稿表示 -->
+      {{$follow->post;}}
+      <!-- フォローしているユーザーの投稿時間表示 -->
+      {{$follow->created_at}}
       </div>
+      <hr>
+
       @endforeach
-
-
-
-
 
 
   </div>
