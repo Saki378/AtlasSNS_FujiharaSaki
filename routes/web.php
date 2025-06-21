@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 Route::group(['middleware'=>['auth']],function () {
-  Route::get('top', [PostsController::class, 'index']);
+  Route::get('top', [PostsController::class, 'index'])->name('top.show');
 
   //更新ページ表示
   Route::get('profile', [ProfileController::class, 'index']);
@@ -36,7 +36,7 @@ Route::group(['middleware'=>['auth']],function () {
   Route::get('follow-list', [PostsController::class, 'followShow']);
 
   //フォロワーリスト
-  Route::get('follower-list', [PostsController::class, 'followerList']);
+  Route::get('follower-list', [PostsController::class, 'followerShow']);
 
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);

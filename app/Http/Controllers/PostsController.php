@@ -13,15 +13,27 @@ class PostsController extends Controller
     public function index(){
 
         $follow_users = Auth::user()->followers->pluck('id');
+        if (Auth::user()->followers()->exists()) {
+            //フォローしている人、自分の投稿取得する。新しい順
+            $posts_all= Post::where('user_id',$follow_users)
+            ->orWhere('user_id',[Auth::id()])
+            ->latest('updated_at')
+            ->get();
+            return view('posts.index')->with('posts_all',$posts_all);
 
-    //フォローしている人、自分の投稿取得する。新しい順
-        $posts_all= Post::where('user_id',$follow_users)
-        ->orWhere('user_id',[Auth::id()])
-        ->latest('updated_at')
-        ->get();
+        }elseif (Post::where('user_id',[Auth::id()])) {
+            //自分の投稿取得する。新しい順
+            $posts_all= Post::where('user_id',[Auth::id()])
+            ->latest('updated_at')
+            ->get();
+            return view('posts.index')->with('posts_all',$posts_all);
 
-        return view('posts.index')->with('posts_all',$posts_all);
+        } else {
+
+            return view('posts.index');
+        }
     }
+
 
     // authログアウト機能
     public function logout(Request $request) {
@@ -70,24 +82,35 @@ class PostsController extends Controller
         // フォローしている人のデータを出す。
         $follow_users = Auth::user()->followers->pluck('id');
 
-        $follow_data=Post::where('user_id',$follow_users)
-        ->latest('updated_at')
-        ->get();
+        if (Auth::user()->followers()->exists()) {
+            $follow_data=Post::where('user_id',$follow_users)
+            ->latest('updated_at')
+            ->get();
 
-        return view('follows.followList')->with('follow_data',$follow_data);
+            return view('follows.followList')->with('follow_data',$follow_data);
+        } else {
+
+            return redirect()->route('top.show');
+        }
     }
+
 
 // フォローしてくれている人一覧を表示する
     public function followerShow(){
         // フォローしてくれている人のデータを出す。
         $follower_users = Auth::user()->follows->pluck('id');
-        dd($follower_users);
 
-        $follower_data=Post::where('user_id',$follower_users)
-        ->latest('updated_at')
-        ->get();
+        if (Auth::user()->follows()->exists()) {
+            $follower_data=Post::where('user_id',$follower_users)
+            ->latest('updated_at')
+            ->get();
 
-        return view('follows.followerList')->with('follow_data',$follower_data);
+            return view('follows.followerList')->with('follow_data',$follower_data);
+        }else {
+            return redirect()->route('top.show');
+        }
+
+
     }
 
 }

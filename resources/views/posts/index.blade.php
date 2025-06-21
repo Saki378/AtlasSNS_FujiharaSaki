@@ -27,18 +27,31 @@
       </div>
   </div>
 
-    <div class="btn_box">
 
-        <a class="post_update" href="/post/{{$post_show->id}}/update-form">
-        <input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn">
-        </a>
-
-
+    <div class="content btn_box">
+        <!-- 投稿の編集ボタン -->
+        <a class="js-modal-open post_btn" href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}"><input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn"></a>
 
         <a class="post_delete" href="#">
         <input type="image" name="submit" src="{{asset('images/trash.png')}}" alt="削除" class="post_btn">
         </a>
     </div>
+
+     <div class="modal js-modal">
+       <div class="modal_bg js-modal-close">
+       </div>
+       <div class="modal_window">
+           <form action="" method="">
+             <textarea name="" class="modal_post"></textarea>
+             <input type="hidden" name="" class="modal_id" value="">
+             <a class="post_update" href="/post/{{$post_show->id}}/update-form">
+               <input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn">
+             </a>
+                {{ csrf_field() }}
+            </form>
+
+         </div>
+      </div>
 
       <hr>
 

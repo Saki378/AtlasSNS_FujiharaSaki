@@ -40,19 +40,13 @@
         <div>
           <p>フォロー数</p>
           <p>{{Auth::user()->followers->count()}}名</p>
-
-
-
-
-
         </div>
+
         <p class="btn"><a class="btn btn-primary" href="follow-list" role="button">フォローリスト</a></p>
+
         <div>
           <p>フォロワー数</p>
-
           <p>{{Auth::user()->follows->count()}}名</p>
-
-
         </div>
 
         <p class="btn"><a class="btn btn-primary" href="follower-list" role="button">フォロワーリスト</a></p>
@@ -62,9 +56,11 @@
   </div>
   <footer>
   </footer>
+
+
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="{{asset('js/script.js')}}"></script>
+  <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
 </body>
 
 </html>
