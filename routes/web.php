@@ -47,7 +47,8 @@ Route::group(['middleware'=>['auth']],function () {
 
   //ポストを作成
   Route::post('/post_create',[PostsController::class,'create']);
-
-  Route::get('/post/{id}/update-form',[PostsController::class,'update']);
+  //ポストを編集
+  Route::Get('/{id}/update',[PostsController::class,'update']);
+  Route::get('/{id}/delete',[PostsController::class,'delete']);
 
 });

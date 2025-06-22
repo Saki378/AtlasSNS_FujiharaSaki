@@ -67,14 +67,25 @@ class PostsController extends Controller
         return back();
     }
 
-    // 投稿を更新する
-    public function update($id) {
+// 投稿を更新する
+    public function update(Request $request) {
 
-        dd($id);
+        $up_id = $request->input('id');
+        $up_post = $request->input('post');
 
+        // 投稿編集バリデーション
+        $rules = ['post' => 'required|min:1|max:150',];
+        $request -> validate($rules);
 
-        return view('modal');
+        Post::where('id',$up_id)->update([
+            'post' => $up_post]);
 
+        return redirect()->route('top.show');
+    }
+// 投稿を削除する
+    public function delete($id) {
+        Post::where('id',$id)->delete();
+        return redirect()->route('top.show');
     }
 
 // フォローしている人一覧を表示する

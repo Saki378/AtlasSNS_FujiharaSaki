@@ -31,27 +31,26 @@
     <div class="content btn_box">
         <!-- 投稿の編集ボタン -->
         <a class="js-modal-open post_btn" href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}"><input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn"></a>
-
-        <a class="post_delete" href="#">
-        <input type="image" name="submit" src="{{asset('images/trash.png')}}" alt="削除" class="post_btn">
+        <!-- 投稿削除ボタン -->
+        <a class="post_delete" href="/{{$post_show->id}}/delete">
+        <input type="image" name="submit" src="{{asset('images/trash.png')}}" alt="削除" class="post_btn" onclick='return confirm("本当に削除しますか？")'>
         </a>
     </div>
 
-     <div class="modal js-modal">
-       <div class="modal_bg js-modal-close">
-       </div>
-       <div class="modal_window">
-           <form action="" method="">
-             <textarea name="" class="modal_post"></textarea>
-             <input type="hidden" name="" class="modal_id" value="">
-             <a class="post_update" href="/post/{{$post_show->id}}/update-form">
-               <input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn">
-             </a>
-                {{ csrf_field() }}
-            </form>
-
-         </div>
+    <div class="modal js-modal">
+      <div class="modal_bg js-modal-close">
       </div>
+      <div class="modal_window">
+        <!-- {{ Form::open(['url' => '/{id}/update']) }} -->
+        <form action="/{id}/update" method="get">
+        {{ Form::textarea('post',null,['required', 'class' => 'modal_post']) }}
+        {{ Form::hidden('id','post_id',['required','class'=>'modal_id']) }}
+        <!-- <input type="hidden" name="" class="modal_id" value="post_id"> -->
+        <input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn">
+        {{ csrf_field() }}
+        </form>
+       </div>
+    </div>
 
       <hr>
 
