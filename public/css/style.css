@@ -225,7 +225,7 @@ form .modal_post {
 #container .btn_box {
   display: flex;
   justify-content: end;
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 
 #container .btn_box input {
@@ -238,7 +238,6 @@ form .modal_post {
   border-top: 1px solid #ccd0d2;
   margin-top: 0;
 }
-
 
 
 

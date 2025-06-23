@@ -27,15 +27,18 @@
       </div>
   </div>
 
-
+       @if(Auth::id() == $post_show->user_id)
     <div class="content btn_box">
         <!-- 投稿の編集ボタン -->
-        <a class="js-modal-open post_btn" href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}"><input type="image" name="submit" src="{{asset('images/edit.png')}}" alt="編集" class="post_btn"></a>
+        <a class="js-modal-open " href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}">
+          <img class="post_btn update_btn" src="{{asset('images/edit.png')}}" onmouseover="this.src='{{asset('images/edit_h.png')}}'" onmouseout="this.src='{{asset('images/edit.png')}}'"  alt="編集" name="submit" >
+        </a>
         <!-- 投稿削除ボタン -->
-        <a class="post_delete" href="/{{$post_show->id}}/delete">
-        <input type="image" name="submit" src="{{asset('images/trash.png')}}" alt="削除" class="post_btn" onclick='return confirm("本当に削除しますか？")'>
+        <a class="post_delete " href="/{{$post_show->id}}/delete" onclick='return confirm("本当に削除しますか？")'>
+          <img class="post_btn delete_btn" src="{{asset('images/trash.png')}}" onmouseover="this.src='{{asset('images/trash-h.png')}}'" onmouseout="this.src='{{asset('images/trash.png')}}'" alt="編集" name="submit" >
         </a>
     </div>
+      @endif
 
     <div class="modal js-modal">
       <div class="modal_bg js-modal-close">
