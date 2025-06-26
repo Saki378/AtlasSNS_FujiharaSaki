@@ -1,27 +1,27 @@
 <x-login-layout>
 
 
-  <h2>機能を実装していきましょう。フォロワー</h2>
-  フォローしてくれている人のアイコン一覧
+  <h2>フォロワーリスト</h2>
+
 
 
   <div class="follow">
-
-    <!-- 重複を不可 -->
-    @foreach($follow_data->unique('user_id') as $icon)
-    <img class="post_icon line_icon" src="/storage/images/{{ $icon->user->icon_image }}">
+    <!-- アイコン２０個まで表示 -->
+    @foreach($follower_users as $data)
+    <a href="">
+    <img class="post_icon line_icon" src="/storage/images/{{ $data->icon_image }}">
+    </a>
     @endforeach
-
 
   </div>
 
 
   <hr>
 
-  <div class="list">
+  <div class="wrapper">
   <!-- フォローしてくれているメンバーの投稿を新しい順番で表示 -->
-  @foreach($follow_data as $follow)
-      <div>
+  @foreach($followser_post as $follow)
+      <div class="flex">
       <!-- PROFILEへリンク -->
       <a href="#">
       <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">

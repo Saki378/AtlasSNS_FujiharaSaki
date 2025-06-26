@@ -9,7 +9,9 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
-    //ログイン後画面
+
+
+//ログイン後画面
     public function index(){
 
         $follow_users = Auth::user()->followers->pluck('id');
@@ -35,7 +37,7 @@ class PostsController extends Controller
     }
 
 
-    // authログアウト機能
+// authログアウト機能
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();
@@ -82,46 +84,13 @@ class PostsController extends Controller
 
         return redirect()->route('top.show');
     }
+
+
 // 投稿を削除する
     public function delete($id) {
         Post::where('id',$id)->delete();
         return redirect()->route('top.show');
     }
 
-// フォローしている人一覧を表示する
-    public function followShow(){
-        // フォローしている人のデータを出す。
-        $follow_users = Auth::user()->followers->pluck('id');
-
-        if (Auth::user()->followers()->exists()) {
-            $follow_data=Post::where('user_id',$follow_users)
-            ->latest('updated_at')
-            ->get();
-
-            return view('follows.followList')->with('follow_data',$follow_data);
-        } else {
-
-            return redirect()->route('top.show');
-        }
-    }
-
-
-// フォローしてくれている人一覧を表示する
-    public function followerShow(){
-        // フォローしてくれている人のデータを出す。
-        $follower_users = Auth::user()->follows->pluck('id');
-
-        if (Auth::user()->follows()->exists()) {
-            $follower_data=Post::where('user_id',$follower_users)
-            ->latest('updated_at')
-            ->get();
-
-            return view('follows.followerList')->with('follow_data',$follower_data);
-        }else {
-            return redirect()->route('top.show');
-        }
-
-
-    }
 
 }

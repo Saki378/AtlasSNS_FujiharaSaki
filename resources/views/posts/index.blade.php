@@ -13,9 +13,9 @@
 
 </div>
 <hr>
-<div class="post_item">
+<div class="wrapper">
       @foreach( $posts_all as $post_show )
-  <div class="flex line_box">
+  <div class="flex">
         <img class="post_icon line_icon" src="/storage/images/{{ $post_show->user->icon_image }}">
       <div class="post_text">
         <p><span class="text_bold">{{ $post_show->user->username }}</span></p>
@@ -55,7 +55,7 @@
        </div>
     </div>
 
-      <hr>
+    <hr>
 
       @endforeach
 

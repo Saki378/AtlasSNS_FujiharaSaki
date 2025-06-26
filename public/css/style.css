@@ -212,7 +212,7 @@ form .modal_post {
   width: 350px;
 }
 
-#container .post_text span {
+#container .text_bold {
   font-weight: bold;
 }
 
@@ -234,12 +234,10 @@ form .modal_post {
   width: 50px;
 }
 
-#container .post_item hr {
+#container .wrapper hr {
   border-top: 1px solid #ccd0d2;
   margin-top: 0;
 }
-
-
 
 
 

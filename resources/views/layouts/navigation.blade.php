@@ -1,5 +1,5 @@
         <div id="head">
-            <h1><a href="top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="top"><img src="/images/atlas.png"></a></h1>
             <div id="flex_nav">
                 <div id="youname">
                     <p>{{ Auth::user()->username }}さん</p>

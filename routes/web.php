@@ -33,22 +33,33 @@ Route::group(['middleware'=>['auth']],function () {
   Route::get('search', [UsersController::class, 'index']);
 
   //フォローリスト　フォロー一覧表示
-  Route::get('follow-list', [PostsController::class, 'followShow']);
+  Route::get('follow-list', [UsersController::class, 'followShow']);
 
   //フォロワーリスト
-  Route::get('follower-list', [PostsController::class, 'followerShow']);
+  Route::get('follower-list', [UsersController::class, 'followerShow']);
+
+  // フォローしている人のプロフィール
+  Route::get('/followpfofile/{id}',[UsersController::class,'profile']);
 
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);
 
   //検索リスト
-  Route::get('search',[UsersController::class,'search']);
+  Route::get('search',[UsersController::class,'search'])->name('search.show');
   Route::post('search',[UsersController::class,'search']);
 
   //ポストを作成
   Route::post('/post_create',[PostsController::class,'create']);
   //ポストを編集
-  Route::Get('/{id}/update',[PostsController::class,'update']);
+  Route::get('/{id}/update',[PostsController::class,'update']);
   Route::get('/{id}/delete',[PostsController::class,'delete']);
+
+
+  //相手をフォローする
+  Route::get('/{id}/follow',[FollowsController::class,'follow']);
+
+  //相手とのフォローを解除する
+  Route::get('/{id}/follow/destroy',[FollowsController::class,'unfollow']);
+
 
 });

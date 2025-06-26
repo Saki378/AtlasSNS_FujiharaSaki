@@ -19,31 +19,34 @@
 
 </div>
 <hr>
-<div class="search_follow">
+<div class="wrapper">
 
-自分以外のユーザー一覧を表示
+ 自分以外のユーザー一覧を表示
     フォローボタン・フォロー解除ボタン
     ボタンを押したら検索ページをリロード
 
   @foreach ( $all_users as $data )
-  <div>
-    <img src="/storage/images/{{$data->icon_image}}" alt="アイコン">
-    {{ $data->username}}
+  <div class="flex">
+    <a href="/followpfofile/{{$data->id}}" >
+    <img class="post_icon" src="/storage/images/{{$data->icon_image}}" alt="アイコン">
+    </a>
+    <span class="text_bold">{{ $data->username}}</span>
 
     <!-- フォローorノンフォロー -->
 
 
-                        <button type="submit" class="btn btn-primary">
-                            フォロー解除
-                        </button>
 
-                        <button type="submit" class="btn btn-primary" >
-                            フォローする
-                        </button>
+     <a href="/{{$data->id}}/follow">
+      <button type="submit" class="btn btn-primary" >フォローする</button></a>
 
-                </form>
+     <a href="/{{$data->id}}/follow/destroy"><button type="submit" class="btn btn-danger">フォロー解除
+      </button></a>
+
+
+
 
   </div>
+
   @endforeach
 
 </div>
