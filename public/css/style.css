@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+html {}
+
+body {}
+
 /* header */
 header {
   background: #186AC9;
@@ -31,7 +35,15 @@ header h1 img {
 }
 
 #confirm {
-  margin: 10px 20px;
+  margin: 20px 20px;
+}
+
+#confirm .count_btn {
+  text-align: right;
+}
+
+#confirm .count_btn a {
+  width: 130px;
 }
 
 
@@ -149,6 +161,7 @@ form .modal_post {
 #row {
   display: flex;
   flex-flow: row wrap;
+  min-height: 100vh;
 }
 
 #container {
@@ -158,14 +171,22 @@ form .modal_post {
 #side-bar {
   flex: 0 0 19%;
   border-left: 1px solid #727272;
+  height: auto;
 }
 
-.user-seach {
+#side-bar .user-seach {
   text-align: center;
 }
 
-.count {
+#side-bar .user-seach a {
+  width: 150px;
+}
+
+#side-bar .count {
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
 }
 
 /* ---------------------Post投稿画面 */
@@ -252,6 +273,7 @@ form .modal_post {
 
 /* --------------フォロー・フォロワーリスト */
 #container .follow {
+  height: 100px;
   display: flex;
   justify-content: left;
   margin: 20px 20px;
@@ -289,6 +311,7 @@ form .modal_post {
   justify-content: left;
   margin: 20px 60px;
   align-items: center;
+  height: 100px;
 }
 
 .seach form {
@@ -298,15 +321,19 @@ form .modal_post {
 .seach .search-control {
   width: 300px;
   margin: auto 0;
+  height: 40px;
+  border-radius: 5px;
+  border-color: lightgrey;
 }
 
 .seach_img {
-  height: 30px;
+  height: 40px;
   margin: 0 20px;
 }
 
 .seach_word {
-  margin: 0 60px;
+  font-size: 20px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -391,7 +418,8 @@ input[type=file] {
 
 /* -------------------フォロワープロフィール */
 #container .userbox {
-  margin: 25px 20px;
+  margin: 20px 20px;
+  height: 100px;
 }
 
 #container table {
