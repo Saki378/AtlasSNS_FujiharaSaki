@@ -4,40 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Follow;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
 {
 
-    //ユーザーがフォローしているユーザーを抽出
-    // public function follow(){
-    //     return $this->belongsToMany(User::class,'follows','user_id','following_id');
-    // }
-
-
     //フォローする
     public function follow($id){
-        $user_id=Auth::id();
+        $user_id=Auth::user();
 
-        $check = Follow::Where('following_id',$user_id)->where('followed_id',$id);
+        //checkFollowメソッドで真・偽を返す
+        $check = $user_id->checkFollow($id);
 
-        if ($check->count() == 0) {
+        if (!$check) {
             Follow::create([
-                'following_id' => $user_id,
+                'following_id' => $user_id->id,
                 'followed_id' => $id,
-            ],);
-        } else {
-
+            ]);
         }
+
         return redirect()->route('search.show');
     }
 
 
     //フォロー解除する
     public function unfollow($id){
-        $user_id=Auth::id();
+        $user_id=Auth::user();
 
-        Follow::Where('following_id',$user_id)->where('followed_id',$id)->delete();
+        $check = $user_id->checkFollow($id);
+        if ($check) {
+            Follow::Where('following_id',$user_id->id)->where('followed_id',$id)->delete();
+        }
 
         return redirect()->route('search.show');
     }

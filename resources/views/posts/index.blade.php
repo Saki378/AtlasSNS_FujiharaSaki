@@ -2,14 +2,13 @@
 
 
   <!-- <h2>機能を実装していきましょう。</h2> -->
-<div class="flex post_box">
-    <img class="post_icon" src="/storage/images/{{Auth::user()->icon_image }}">
+<div class="post_box">
+    <img class="post_img" src="/storage/images/{{Auth::user()->icon_image }}">
     {{ Form::open(['url' => '/post_create']) }}
     @csrf
     {{ Form::textarea('post',null,['required', 'class' => 'texts', 'placeholder' => '投稿内容を入力してください。']) }}
-
-      <input type="image" name="submit" src="{{asset('images/post.png')}}" alt="送信" class="post_btn">
-      {{ Form::close() }}
+    {{ Form::close() }}
+      <input type="image" name="submit" src="{{asset('images/post.png')}}" alt="送信" class="post_btn post">
 
 </div>
 <hr>
@@ -28,15 +27,11 @@
   </div>
 
        @if(Auth::id() == $post_show->user_id)
-    <div class="content btn_box">
-        <!-- 投稿の編集ボタン -->
-        <a class="js-modal-open " href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}">
-          <img class="post_btn update_btn" src="{{asset('images/edit.png')}}" onmouseover="this.src='{{asset('images/edit_h.png')}}'" onmouseout="this.src='{{asset('images/edit.png')}}'"  alt="編集" name="submit" >
-        </a>
+  <div class="content btn_box">
+        <!-- 投稿のモーダル編集ボタン -->
+      <a class="js-modal-open " href="" post="{{ $post_show->post }}" post_id="{{ $post_show->id }}"><img class="post_btn update_btn" src="{{asset('images/edit.png')}}" onmouseover="this.src='{{asset('images/edit_h.png')}}'" onmouseout="this.src='{{asset('images/edit.png')}}'"  alt="編集" name="submit" ></a>
         <!-- 投稿削除ボタン -->
-        <a class="post_delete " href="/{{$post_show->id}}/delete" onclick='return confirm("本当に削除しますか？")'>
-          <img class="post_btn delete_btn" src="{{asset('images/trash.png')}}" onmouseover="this.src='{{asset('images/trash-h.png')}}'" onmouseout="this.src='{{asset('images/trash.png')}}'" alt="編集" name="submit" >
-        </a>
+        <a class="post_delete " href="/{{$post_show->id}}/delete" onclick='return confirm("本当に削除しますか？")'><img class="post_btn delete_btn" src="{{asset('images/trash.png')}}" onmouseover="this.src='{{asset('images/trash-h.png')}}'" onmouseout="this.src='{{asset('images/trash.png')}}'" alt="編集" name="submit" ></a>
     </div>
       @endif
 
@@ -58,9 +53,6 @@
     <hr>
 
       @endforeach
-
-
-
 
 </div>
 

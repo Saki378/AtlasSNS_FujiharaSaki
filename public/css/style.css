@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-html {}
-
-body {}
-
 /* header */
 header {
   background: #186AC9;
@@ -19,7 +15,6 @@ header {
 header h1 {
   display: block;
   margin: auto 20px;
-
 }
 
 header h1 img {
@@ -34,6 +29,11 @@ header h1 img {
   margin: auto 10px;
   position: relative;
 }
+
+#confirm {
+  margin: 10px 20px;
+}
+
 
 header p {
   color: #fff;
@@ -78,7 +78,6 @@ header nav ul {
   top: 55px;
   right: -10px;
   width: 100%;
-
 }
 
 header nav a {
@@ -134,7 +133,6 @@ div .icon img {
   transform: translate(-50%, -50%);
 }
 
-
 form .modal_post {
   height: 200px;
   width: 90%;
@@ -147,7 +145,7 @@ form .modal_post {
 
 
 
-/* --------------------main content */
+/* --------------------サイドバー content */
 #row {
   display: flex;
   flex-flow: row wrap;
@@ -157,27 +155,54 @@ form .modal_post {
   flex: 0 0 80%;
 }
 
-#container .flex {
-  display: flex;
+#side-bar {
+  flex: 0 0 19%;
+  border-left: 1px solid #727272;
+}
+
+.user-seach {
+  text-align: center;
+}
+
+.count {
+  align-items: center;
 }
 
 /* ---------------------Post投稿画面 */
 
+#container .flex {
+  display: flex;
+  padding: 0 20px;
+}
+
 #container .post_box {
-  justify-content: center;
-  align-items: center;
+  display: flex;
   margin: 20px auto;
+}
+
+#container .post_img {
+  height: 50px;
+  margin: 0 20px auto 60px;
 }
 
 #container .post_icon {
   height: 40px;
   margin-bottom: 50px;
-  margin-right: 20px;
+  margin-right: 40px;
+  margin-left: 90px;
+}
+
+#container .post_box form {
+  width: auto;
+}
+
+.post_box .post {
+  margin: auto 0 0 10px;
 }
 
 #container .texts {
   height: 100px;
-  width: 400px;
+  width: 600px;
   overflow: auto;
   border: none;
   background-color: #f5f8fa;
@@ -193,19 +218,6 @@ form .modal_post {
   border-top: 5px solid #eee;
 }
 
-#side-bar {
-  flex: 0 0 19%;
-  border-left: 1px solid #727272;
-}
-
-#container .post_line {
-  height: 20px;
-  width: 300px;
-}
-
-#container .line_icon {
-  margin-left: auto;
-}
 
 #container .post_text {
   height: 20px;
@@ -217,9 +229,7 @@ form .modal_post {
 }
 
 #container .post_time {
-  margin: 0 40px 0 20px;
-  text-align: right;
-  width: 30%;
+  margin: 0 0 0 auto;
 }
 
 #container .btn_box {
@@ -240,48 +250,160 @@ form .modal_post {
 }
 
 
+/* --------------フォロー・フォロワーリスト */
+#container .follow {
+  display: flex;
+  justify-content: left;
+  margin: 20px 20px;
+}
+
+#container h2 {
+  font-size: 20px;
+  width: 20%;
+  text-align: center;
+}
+
+#container .follow_item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#container .follow_item a {
+  flex: 10%;
+}
+
+#container .follow img {
+  height: 40px;
+  margin: 2px;
+}
 
 
+/*--------------- 検索ページ */
+.seach_box {
+  align-items: center;
+  margin: 50px 0;
+}
 
-/* プロフィール更新 */
+.seach {
+  display: flex;
+  justify-content: left;
+  margin: 20px 60px;
+  align-items: center;
+}
+
+.seach form {
+  display: flex;
+}
+
+.seach .search-control {
+  width: 300px;
+  margin: auto 0;
+}
+
+.seach_img {
+  height: 30px;
+  margin: 0 20px;
+}
+
+.seach_word {
+  margin: 0 60px;
+  padding: 0;
+}
+
+.seach_word p {
+  margin: 0;
+}
+
+.seach_icon img {
+  height: 40px;
+  margin: 0 20px;
+}
+
+.seach_name {
+  width: 200px;
+}
+
+.seach_name p {
+  margin: 0;
+}
+
+/*--------------- プロフィール更新ブレード */
 .flex {
   display: flex;
-  margin: 40px auto;
-  margin-bottom: 10px;
   position: relative;
   justify-content: center;
 }
 
+#container .form_box {
+  margin-top: 10px;
+}
+
 #container .icon {
   height: 40px;
-  margin-right: 20px;
 }
 
 #container .form-control {
   display: block;
-  margin: 10px auto;
 }
 
-#container input {
-  margin: 10px 40px;
-  width: 300px;
+#container .profilebox {
+  margin: 0 30px;
 }
 
 #container table input {
+  margin: 10px 40px;
+  width: 300px;
   background-color: lightgrey;
+  cursor: pointer;
+}
+
+#container .file_btn {
+  margin: 15px auto;
+  height: 90px;
+  width: 300px;
+  background-color: lightgray;
+  border-radius: 5px;
+  place-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#container .file_btn p {
+  display: block;
+  background-color: #fff;
+  margin: 0;
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 17px;
+  color: lightgray;
 }
 
 input[type=file] {
-  display: block;
-  top: 0;
-  left: 0;
-  height: 40px;
-  border: 1px solid #ccd0d2;
+  display: none
 }
 
-
-#container .btn-danger {
+#container .profile_update {
   display: block;
-  margin: 0px auto;
   width: 200px;
+  margin: 0 auto;
+}
+
+/* -------------------フォロワープロフィール */
+#container .userbox {
+  margin: 25px 20px;
+}
+
+#container table {
+  margin: 0 30px;
+}
+
+#container table tr th {
+  margin-right: 60px;
+  display: block;
+}
+
+#container .user_follow {
+  display: block;
+  margin: auto 0 0 auto;
 }

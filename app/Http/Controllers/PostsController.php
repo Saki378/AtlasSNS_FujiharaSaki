@@ -15,9 +15,10 @@ class PostsController extends Controller
     public function index(){
 
         $follow_users = Auth::user()->followers->pluck('id');
+
         if (Auth::user()->followers()->exists()) {
             //フォローしている人、自分の投稿取得する。新しい順
-            $posts_all= Post::where('user_id',$follow_users)
+            $posts_all= Post::whereIn('user_id',$follow_users)
             ->orWhere('user_id',[Auth::id()])
             ->latest('updated_at')
             ->get();

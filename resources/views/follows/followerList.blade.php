@@ -1,17 +1,17 @@
 <x-login-layout>
 
 
-  <h2>フォロワーリスト</h2>
 
 
 
   <div class="follow">
+    <h2>フォロワーリスト</h2>
     <!-- アイコン２０個まで表示 -->
-    @foreach($follower_users as $data)
-    <a href="">
-    <img class="post_icon line_icon" src="/storage/images/{{ $data->icon_image }}">
-    </a>
-    @endforeach
+    <div class="follow_item">
+      @foreach($follower_users as $data)
+     <a href=""><img class="line_icon" src="/storage/images/{{ $data->icon_image }}"></a>
+      @endforeach
+    </div>
 
   </div>
 
@@ -34,7 +34,6 @@
       {{$follow->created_at}}
       </div>
       <hr>
-
       @endforeach
 
 </div>

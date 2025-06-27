@@ -2,15 +2,14 @@
 
 
   <div class="follow">
-  <h2>フォローリスト</h2>
+    <h2>フォローリスト</h2>
+    <div class="follow_item">
 
-  <!-- 重複を不可 -->
-  @foreach($follow_data as $icon)
+         @foreach($follow_data as $icon)
+         <a href=""><img class="line_icon" src="/storage/images/{{ $icon->icon_image }}"></a>
+         @endforeach
 
-   <img class="post_icon line_icon" src="/storage/images/{{ $icon->icon_image }}">
-
-  @endforeach
-
+      </div>
   </div>
 
 
@@ -19,18 +18,23 @@
   <div class="wrapper">
       @foreach($follow_post as $follow)
       <div class="flex">
-      <!-- PROFILEへリンク -->
-      <a href="#">
-      <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
+        <!-- PROFILEへリンク -->
+        <a class="icon_box" href="#">
+        <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
       </a>
-      <!-- フォローユーザー名 -->
-       <span class="text_bold">
-       {{ $follow->user->username }}
-       </span>
-      <!-- フォローしているユーザーの投稿表示 -->
-      {{$follow->post;}}
-      <!-- フォローしているユーザーの投稿時間表示 -->
-      {{$follow->created_at}}
+
+      <div class="post_text">
+        <!-- フォローユーザー名 -->
+        <p><span class="text_bold">
+         {{ $follow->user->username }}
+         </span></p>
+        <!-- フォローしているユーザーの投稿表示 -->
+        <p>{{$follow->post;}}</p>
+      </div>
+      <div class="post_time">
+        <!-- フォローしているユーザーの投稿時間表示 -->
+       <p>{{$follow->created_at}}</p>
+      </div>
       </div>
       <hr>
 

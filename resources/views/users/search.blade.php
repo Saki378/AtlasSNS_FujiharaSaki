@@ -1,49 +1,42 @@
 <x-login-layout>
 
 
-<div class="search">
+<div class="seach">
+     {!! Form::open() !!}
+     @csrf
+     {{ Form::input('text','search_name',null,['placeholder'=>'ユーザー名','class'=>'search-control']) }}
+     <input type="image" name="submit" src="{{asset('images/search.png')}}" alt="送信" class="seach_img">
+     {{ Form::close() }}
 
-
-{!! Form::open() !!}
-@csrf
-{{ Form::input('text','search_name',null,['placeholder'=>'ユーザー名','class'=>'search-control']) }}
-<input type="image" name="submit" src="{{asset('images/search.png')}}" alt="送信" class="post_btn">
-
-  {{ Form::close() }}
-
-@isset($search_name)
-  <p>検索ワード：{{$search_name}}</p>
-@endisset
-
-
-
+   <div class="seach_word">
+     @isset($search_name)
+      <p>検索ワード：{{$search_name}}</p>
+     @endisset
+  </div>
 </div>
+
 <hr>
+
 <div class="wrapper">
 
- 自分以外のユーザー一覧を表示
-    フォローボタン・フォロー解除ボタン
-    ボタンを押したら検索ページをリロード
-
   @foreach ( $all_users as $data )
-  <div class="flex">
-    <a href="/followpfofile/{{$data->id}}" >
-    <img class="post_icon" src="/storage/images/{{$data->icon_image}}" alt="アイコン">
-    </a>
-    <span class="text_bold">{{ $data->username}}</span>
+  <div class="flex seach_box">
+    <a class="seach_icon" href="/followpfofile/{{$data->id}}" ><img  src="/storage/images/{{$data->icon_image}}" alt="アイコン"></a>
+    <div class="seach_name">
+      <p><span class="text_bold ">{{ $data->username}}</span></p>
+    </div>
+
+
 
     <!-- フォローorノンフォロー -->
+    <div class="seach_btn">
 
-
-
-     <a href="/{{$data->id}}/follow">
-      <button type="submit" class="btn btn-primary" >フォローする</button></a>
-
-     <a href="/{{$data->id}}/follow/destroy"><button type="submit" class="btn btn-danger">フォロー解除
-      </button></a>
-
-
-
+     @if(Auth::user()->checkFollow($data->id))
+      <a class="btn btn-danger" href="/{{$data->id}}/follow/destroy">フォロー解除</a>
+     @else
+      <a class="btn btn-primary" href="/{{$data->id}}/follow">フォローする</a>
+     @endif
+    </div>
 
   </div>
 

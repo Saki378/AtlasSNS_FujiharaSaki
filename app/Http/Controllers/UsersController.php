@@ -50,11 +50,11 @@ public function followShow(){
     // フォローしている人のデータを出す。
     $follow = Auth::user()->followers->pluck('id');
 
-    $follow_data = User::Where('id',$follow)
+    $follow_data = User::WhereIn('id',$follow)
     ->limit(20)
     ->get();
 
-    $follow_post = Post::Where('user_id',$follow)
+    $follow_post = Post::WhereIn('user_id',$follow)
     ->latest('updated_at')
     ->get();
 
@@ -66,11 +66,11 @@ public function followShow(){
 public function followerShow(){
     // フォローしてくれている人のデータを出す。
     $follower = Auth::user()->follows->pluck('id');
-    $follower_users = User::Where('id',$follower)
+    $follower_users = User::WhereIn('id',$follower)
     ->limit(20)
     ->get();
     //フォローしてくれている人の投稿データ
-    $followser_post = Post::Where('user_id',$follower)
+    $followser_post = Post::WhereIn('user_id',$follower)
     ->latest('updated_at')
     ->get();
 

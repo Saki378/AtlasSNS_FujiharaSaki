@@ -51,4 +51,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\User','Follows','followed_id','following_id');
     }
 
+
+    //フォローテーブルに条件にあったレコードがあるか
+    public function checkFollow(Int $id){
+        return (boolean) $this->followers()->where('followed_id',$id)->first();
+    }
+
 }
