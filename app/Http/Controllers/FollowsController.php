@@ -24,7 +24,7 @@ class FollowsController extends Controller
             ]);
         }
 
-        return redirect()->route('search.show');
+        return back();
     }
 
 
@@ -37,7 +37,7 @@ class FollowsController extends Controller
             Follow::Where('following_id',$user_id->id)->where('followed_id',$id)->delete();
         }
 
-        return redirect()->route('search.show');
+        return back();
     }
 
 

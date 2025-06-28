@@ -39,7 +39,7 @@ Route::group(['middleware'=>['auth']],function () {
   Route::get('follower-list', [UsersController::class, 'followerShow']);
 
   // フォローしている人のプロフィール
-  Route::get('/followpfofile/{id}',[UsersController::class,'profile']);
+  Route::get('{id}profile',[UsersController::class,'profile']);
 
   // ログアウト実装
   Route::get('logout',[PostsController::class,'logout']);

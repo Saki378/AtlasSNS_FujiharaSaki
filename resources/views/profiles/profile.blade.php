@@ -37,10 +37,9 @@
   <tr>
     <td>{{ Form::label('アイコン画像') }}</td>
     <td>
-    <div class="file_btn">
-      <p>ファイルを選択</p>
-       {{ Form::input('file','IconImage','ファイルを選択',['class' => 'btn btn-light']) }}
-    </div>
+      <div id="attachment">
+        <label class="file_btn"><span class="filename">ファイルを選択</span>{{ Form::input('file','IconImage','ファイルを選択',['class' => 'btn btn-light fileinput']) }}</label>
+      </div>
     </td>
    </tr>
   </table>

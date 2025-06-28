@@ -7,8 +7,8 @@
     {{ Form::open(['url' => '/post_create']) }}
     @csrf
     {{ Form::textarea('post',null,['required', 'class' => 'texts', 'placeholder' => '投稿内容を入力してください。']) }}
+    <input type="image" name="submit" src="{{asset('images/post.png')}}" alt="送信" class="post_btn post">
     {{ Form::close() }}
-      <input type="image" name="submit" src="{{asset('images/post.png')}}" alt="送信" class="post_btn post">
 
 </div>
 <hr>

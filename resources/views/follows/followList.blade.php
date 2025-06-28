@@ -6,7 +6,7 @@
     <div class="follow_item">
 
          @foreach($follow_data as $icon)
-         <a href=""><img class="line_icon" src="/storage/images/{{ $icon->icon_image }}"></a>
+         <a href="{{$icon->id}}profile"><img class="line_icon" src="/storage/images/{{ $icon->icon_image }}"></a>
          @endforeach
 
       </div>
@@ -19,7 +19,7 @@
       @foreach($follow_post as $follow)
       <div class="flex">
         <!-- PROFILEへリンク -->
-        <a class="icon_box" href="#">
+        <a class="icon_box" href="{{$follow->user->id}}profile">
         <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
       </a>
 

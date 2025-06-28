@@ -21,7 +21,7 @@
 
   @foreach ( $all_users as $data )
   <div class="flex seach_box">
-    <a class="seach_icon" href="/followpfofile/{{$data->id}}" ><img  src="/storage/images/{{$data->icon_image}}" alt="アイコン"></a>
+    <a class="seach_icon" href="{{$data->id}}profile" ><img  src="/storage/images/{{$data->icon_image}}" alt="アイコン"></a>
     <div class="seach_name">
       <p><span class="text_bold ">{{ $data->username}}</span></p>
     </div>

@@ -13,11 +13,15 @@
       <td><span class="text_bold">{{ $follow_data->bio}}</span></td>
     </tr>
   </table>
-  @endisset
 
   <div class="user_follow">
-    <a href="">フォローボタン</a>
+    @if(Auth::user()->checkFollow($follow_data->id))
+    <a class="btn btn-danger" href="/{{$follow_data->id}}/follow/destroy">フォロー解除</a>
+    @else
+    <a class="btn btn-primary" href="/{{$follow_data->id}}/follow">フォローする</a>
+    @endif
   </div>
+  @endisset
 </div>
 
 <hr>

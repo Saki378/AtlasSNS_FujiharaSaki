@@ -9,7 +9,7 @@
     <!-- アイコン２０個まで表示 -->
     <div class="follow_item">
       @foreach($follower_users as $data)
-     <a href=""><img class="line_icon" src="/storage/images/{{ $data->icon_image }}"></a>
+     <a href="{{$data->id}}profile"><img class="line_icon" src="/storage/images/{{ $data->icon_image }}"></a>
       @endforeach
     </div>
 
@@ -23,9 +23,7 @@
   @foreach($followser_post as $follow)
       <div class="flex">
       <!-- PROFILEへリンク -->
-      <a href="#">
-      <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
-      </a>
+      <a href="{{$follow->user->id}}profile"><img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}"></a>
       <!-- フォローユーザー名 -->
       {{ $follow->user->username }}
       <!-- フォローしているユーザーの投稿表示 -->

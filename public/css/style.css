@@ -396,7 +396,7 @@ form .modal_post {
   cursor: pointer;
 }
 
-#container .file_btn p {
+#container .file_btn span {
   display: block;
   background-color: #fff;
   margin: 0;
