@@ -18,7 +18,11 @@
                 </nav>
 
                 <div class="icon" >
-                <img src="/storage/images/{{Auth::user()->icon_image }}">
+                  @if(Auth::user()->icon_image == 'icon1.png')
+                  <img src="/images/icon1.png">
+                  @else
+                  <img src="/storage/images/{{Auth::user()->icon_image }}">
+                  @endif
                 </div>
             </div>
         </div>

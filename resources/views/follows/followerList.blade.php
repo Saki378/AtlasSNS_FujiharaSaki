@@ -9,7 +9,13 @@
     <!-- アイコン２０個まで表示 -->
     <div class="follow_item">
       @foreach($follower_users as $data)
-      <a href="{{$data->id}}profile"><img class="line_icon" src="/storage/images/{{ $data->icon_image }}"></a>
+      <a href="{{$data->id}}profile">
+        @if($data->icon_image == 'icon1.png')
+        <img src="/images/icon1.png">
+        @else
+        <img src="/storage/images/{{ $data->icon_image }}">
+        @endif
+      </a>
       @endforeach
     </div>
   </div>
@@ -21,7 +27,11 @@
     <div class="flex">
       <!-- PROFILEへリンク -->
       <a href="{{$follow->user->id}}profile">
-        <img class="post_icon line_icon" src="/storage/images/{{ $follow->user->icon_image }}">
+        @if($follow->user->icon_image == 'icon1.png')
+        <img class="post_icon" src="/images/icon1.png">
+        @else
+        <img class="post_icon" src="/storage/images/{{ $follow->user->icon_image }}">
+        @endif
       </a>
 
       <div class="post_text">

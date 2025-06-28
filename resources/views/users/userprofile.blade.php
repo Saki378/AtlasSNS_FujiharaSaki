@@ -2,7 +2,11 @@
 
 <div class="flex userbox">
   @isset($follow_data)
-   <img class="icon" src="/storage/images/{{$follow_data->icon_image}}" alt="ユーザーアイコン">
+    @if($follow_data->icon_image == 'icon1.png')
+    <img class="icon" src="/images/icon1.png">
+    @else
+    <img class="icon" src="/storage/images/{{$follow_data->icon_image}}" alt="ユーザーアイコン">
+    @endif
   <table class="follow_table">
     <tr>
       <th><p>ユーザー名</p></th>

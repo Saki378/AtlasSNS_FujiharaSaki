@@ -21,7 +21,13 @@
 
   @foreach ( $all_users as $data )
   <div class="flex seach_box">
-    <a class="seach_icon" href="{{$data->id}}profile" ><img  src="/storage/images/{{$data->icon_image}}" alt="アイコン"></a>
+    <a class="seach_icon" href="{{$data->id}}profile" >
+      @if($data->icon_image == 'icon1.png')
+      <img src="/images/icon1.png">
+      @else
+      <img  src="/storage/images/{{$data->icon_image}}" alt="アイコン">
+      @endif
+    </a>
     <div class="seach_name">
       <p><span class="text_bold ">{{ $data->username}}</span></p>
     </div>

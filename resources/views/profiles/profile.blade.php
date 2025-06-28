@@ -3,7 +3,12 @@
 
 <div class="flex form_box">
 
+  @if(Auth::user()->icon_image == 'icon1.png')
+  <img class="icon" src="/images/icon1.png">
+  @else
   <img class="icon" src="/storage/images/{{Auth::user()->icon_image }}">
+  @endif
+
 
   <table class="profilebox">
     {!! Form::open(['url' => 'update_form','enctype'=>'multipart/form-data']) !!}
