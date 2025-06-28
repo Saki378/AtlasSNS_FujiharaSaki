@@ -3,10 +3,10 @@
 
   <!-- <h2>機能を実装していきましょう。</h2> -->
 <div class="post_box">
-    <img class="post_img" src="/storage/images/{{Auth::user()->icon_image }}">
+      <img class="post_img" src="/storage/images/{{Auth::user()->icon_image }}">
     {{ Form::open(['url' => '/post_create']) }}
     @csrf
-    {{ Form::textarea('post',null,['required', 'class' => 'texts', 'placeholder' => '投稿内容を入力してください。']) }}
+    {{Form::textarea('post',null,['required', 'class' => 'texts', 'placeholder' => '投稿内容を入力してください。']) }}
     <input type="image" name="submit" src="{{asset('images/post.png')}}" alt="送信" class="post_btn post">
     {{ Form::close() }}
 
@@ -18,11 +18,12 @@
         <img class="post_icon line_icon" src="/storage/images/{{ $post_show->user->icon_image }}">
       <div class="post_text">
         <p><span class="text_bold">{{ $post_show->user->username }}</span></p>
-        <p>{{ $post_show->post }}</p>
+        <!-- 改行文字も反映する -->
+        <p>{!! nl2br(htmlspecialchars($post_show->post)) !!}</p>
       </div>
 
       <div class="post_time">
-        <p>{{ $post_show->created_at }}</p>
+        <p>{{ $post_show->created_at->format('Y-m-d H:i') }}</p>
       </div>
   </div>
 

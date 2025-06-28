@@ -35,7 +35,7 @@
         <p>{{$posts->post}}</p>
       </div>
       <div class="post_time">
-        <p>{{$posts->updated_at}}</p>
+        <p>{{$posts->updated_at->format('Y-m-d H:i')}}</p>
       </div>
     </div>
     <hr>

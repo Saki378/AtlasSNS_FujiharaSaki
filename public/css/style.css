@@ -10,7 +10,7 @@ header {
 }
 
 #head {
-  margin-top: 10px;
+
   display: flex;
   justify-content: space-between;
   height: 70px;
@@ -228,6 +228,7 @@ form .modal_post {
   border: none;
   background-color: #f5f8fa;
   resize: none;
+  white-space: pre-wrap;
 }
 
 #container .post_btn {
