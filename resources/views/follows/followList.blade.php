@@ -22,9 +22,9 @@
       @foreach($follow_post as $follow)
       <div class="flex">
         <!-- PROFILEへリンク -->
-        <a class="icon_box" href="{{$follow->user->id}}profile">
+        <a href="{{$follow->user->id}}profile">
           @if($follow->user->icon_image == 'icon1.png')
-          <img src="/images/icon1.png">
+          <img class="post_icon" src="/images/icon1.png">
           @else
           <img class="post_icon" src="/storage/images/{{ $follow->user->icon_image }}">
           @endif

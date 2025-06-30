@@ -25,7 +25,7 @@
       @foreach( $posts_all as $post_show )
   <div class="flex">
     <div class="icon post_icon">
-      @if(Auth::user()->icon_image == 'icon1.png')
+      @if($post_show->user->icon_image == 'icon1.png')
       <img src="/images/icon1.png">
       @else
       <img src="/storage/images/{{ $post_show->user->icon_image }}">

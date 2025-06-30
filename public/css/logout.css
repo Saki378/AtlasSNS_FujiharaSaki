@@ -95,3 +95,24 @@ form p {
     text-decoration: underline;
 
 }
+
+/* 新規登録後 */
+#clear {
+    text-align: center;
+}
+
+#clear .clear-name {
+    font-weight: bold;
+}
+
+.clear-name span {
+    font-size: 18px;
+}
+
+#clear .clear-text {
+    margin: 40px 0;
+}
+
+#clear a {
+    text-decoration: none;
+}

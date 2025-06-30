@@ -1,9 +1,6 @@
 <x-login-layout>
 
 
-
-
-
   <div class="follow">
     <h2>フォロワーリスト</h2>
     <!-- アイコン２０個まで表示 -->
@@ -27,7 +24,7 @@
     <div class="flex">
       <!-- PROFILEへリンク -->
       <a href="{{$follow->user->id}}profile">
-        @if($follow->user->icon_image == 'icon1.png')
+        @if( $follow->user->icon_image == 'icon1.png')
         <img class="post_icon" src="/images/icon1.png">
         @else
         <img class="post_icon" src="/storage/images/{{ $follow->user->icon_image }}">
@@ -54,6 +51,5 @@
     @endforeach
 
   </div>
-
 
 </x-login-layout>

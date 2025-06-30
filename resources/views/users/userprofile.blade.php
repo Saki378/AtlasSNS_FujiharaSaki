@@ -33,15 +33,20 @@
 <div class="wrapper">
   @foreach ($follow_post as $posts)
   <div class="flex">
-      <img class="post_icon line_icon" src="/storage/images/{{$posts->user->icon_image}}" alt="ユーザーアイコン">
-      <div class="post_text">
-        <p><span class="text_bold">{{$posts->user->username}}</span></p>
-        <p>{{$posts->post}}</p>
-      </div>
-      <div class="post_time">
-        <p>{{$posts->updated_at->format('Y-m-d H:i')}}</p>
-      </div>
+      @if($posts->user->icon_image == 'icon1.png')
+      <img class="post_icon" src="/images/icon1.png">
+      @else
+      <img class="post_icon" src="/storage/images/{{$posts->user->icon_image}}" alt="ユーザーアイコン">
+      @endif
+    <div class="post_text">
+      <p><span class="text_bold">{{$posts->user->username}}</span></p>
+      <p>{!! nl2br(htmlspecialchars($posts->post)) !!}</p>
     </div>
+    <div class="post_time">
+      <p>{{$posts->updated_at->format('Y-m-d H:i')}}</p>
+    </div>
+  </div>
+
     <hr>
     @endforeach
 </div>
